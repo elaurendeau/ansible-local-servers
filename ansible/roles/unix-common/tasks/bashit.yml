@@ -13,15 +13,9 @@
 
 - name: Executing the bash it
   command: ~/.bash_it/install.sh 
-- name: Closing alias
-  git:
-    repo: https://github.com/elaurendeau/dotfiles
-    dest: ~/dotfiles
-    clone: yes
-    update: yes
 
-- name: Add alias to bashrc
-  assemble:
-    src: ~/dotfiles/
-    dest: ~/.bashrc
-    regexp: '_unix-alias'
+- name: Adding alias to bashit
+  blockinfile:
+    block: "{{ lookup('file', '../../../dotfiles/_unix-alias') }}"
+    dest: "~/.bashrc"
+    backup: yes
