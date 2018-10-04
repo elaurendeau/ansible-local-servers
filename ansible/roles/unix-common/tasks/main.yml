@@ -1,0 +1,4 @@
+# vim:ft=ansible:
+- import_tasks: git.yml
+- import_tasks: vim.yml
+- import_tasks: bashit.yml

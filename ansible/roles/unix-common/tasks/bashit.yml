@@ -1,0 +1,27 @@
+# vim:ft=ansible:
+- name: Cloning bash it
+  git:
+    repo: https://github.com/Bash-it/bash-it.git
+    dest: ~/.bash_it
+    clone: yes
+    update: yes
+
+- name: Removing existing .bashrc.bak
+  file:
+    path: ~/.bashrc.bak
+    state: absent
+
+- name: Executing the bash it
+  command: ~/.bash_it/install.sh 
+- name: Closing alias
+  git:
+    repo: https://github.com/elaurendeau/dotfiles
+    dest: ~/dotfiles
+    clone: yes
+    update: yes
+
+- name: Add alias to bashrc
+  assemble:
+    src: ~/dotfiles/
+    dest: ~/.bashrc
+    regexp: '_unix-alias'

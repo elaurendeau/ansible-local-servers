@@ -1,0 +1,5 @@
+# vim:ft=ansible:
+- name: Setup test
+  hosts: targetedservers
+  roles:
+    - unix-common

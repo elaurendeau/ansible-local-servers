@@ -1,0 +1,6 @@
+# vim:ft=ansible:
+- name: Install git
+  become: yes
+  package:
+    name: git
+    state: latest

@@ -1,0 +1,29 @@
+# vim:ft=ansible:
+# tasks file for vim
+- name: Install and configure vim
+  become: yes
+  package:
+    name: vim
+    state: latest
+
+- name: Clone vim vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+    clone: yes
+    update: yes
+
+- name: Cloning vim rc
+  git:
+    repo: https://github.com/elaurendeau/dotfiles
+    dest: ~/dotfiles
+    clone: yes
+    update: yes
+
+- name: Copying vim rc
+  copy:
+    src: ~/dotfiles/_vimrc
+    dest: ~/
+
+- name: Install all plugins
+  command: vim +PluginInstall +qall
