@@ -25,6 +25,3 @@
     path: ~/.bashrc
     regexp: '^export BASH_IT_THEME='
     line: 'export BASH_IT_THEME="powerline"'
-
-- name: Adding bashit completion on ssh
-  shell: . ~/.bash_it/bash_it.sh enable completion ssh

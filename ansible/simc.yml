@@ -2,4 +2,4 @@
 - name: Setup test
   hosts: local
   roles:
-    - unix-common
+    - simc-builder
