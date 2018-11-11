@@ -14,10 +14,17 @@
 - name: Executing the bash it
   command: ~/.bash_it/install.sh 
 
+- name: clone dotfiles
+  git:
+    repo: https://github.com/elaurendeau/dotfiles.git
+    dest: ~/dotfiles
+    clone: yes
+    update: yes
+
 - name: Adding alias to bashit
   blockinfile:
-    block: "{{ lookup('file', '../../../dotfiles/_unix-alias') }}"
-    dest: "~/.bashrc"
+    block: ~/dotfiles/_unix-alias
+    dest: ~/.bashrc
     backup: yes
 
 - name: Install a bashit powerline theme

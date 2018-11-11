@@ -13,9 +13,17 @@
     clone: yes
     update: yes
 
-- name: Copying vim rc
+- name: clone dotfiles
+  git:
+    repo: https://github.com/elaurendeau/dotfiles.git
+    dest: ~/dotfiles
+    clone: yes
+    update: yes
+
+- name: copy vimrc
   copy:
-    src: "../../../dotfiles/_vimrc"
+    src: ~/dotfiles/_vimrc
+    remote_src: yes
     dest: ~/
 
 - name: Install all plugins

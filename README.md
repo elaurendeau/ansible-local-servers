@@ -1,4 +1,24 @@
-# ansible-local-servers
-This ansible script will be used to handle the configuration unix machines
+# Ansible Role: raspberrypi-docker
 
-Use the git clone --recursive ... command
+## Requirements
+
+None.
+
+## Installation
+
+    ansible-galaxy install elaurendeau.ansible_role_common_unix
+
+## Role Variables
+
+None.
+
+## Dependencies
+
+None.
+
+## Example Playbook
+
+    - hosts: all
+      tasks:
+        - import_role:
+            name: elaurendeau.ansible_role_common_unix
