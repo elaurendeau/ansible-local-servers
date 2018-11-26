@@ -12,7 +12,7 @@
     state: absent
 
 - name: Executing the bash it
-  command: ~/.bash_it/install.sh 
+  command: source ~/.bash_it/install.sh 
 
 - name: clone dotfiles
   git:
