@@ -23,7 +23,7 @@
 
 - name: Adding alias to bashit
   blockinfile:
-    block: ~/dotfiles/_unix-alias
+    block: "{{ lookup('file', '~/dotfiles/_unix-alias') }}"
     dest: ~/.bashrc
     backup: yes
 
